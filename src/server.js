@@ -5,7 +5,8 @@ const mongoose = require("mongoose");
 // const bodyParser = require("body-parser");
 
 // -----------------------Routes----------------------------
-const userRoutes = require("./routes/auth");
+const userAuthRoutes = require("./routes/auth");
+const adminAuthRoutes = require("./routes/admin/auth");
 
 env.config();
 
@@ -25,7 +26,8 @@ mongoose
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api", userRoutes);
+app.use("/api", userAuthRoutes);
+app.use("/api", adminAuthRoutes);
 
 // Server calling
 app.listen(process.env.PORT, () => {
