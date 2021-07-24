@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const userAuthRoutes = require("./routes/authUser");
 const adminAuthRoutes = require("./routes/authAdmin");
 const categoryRoutes = require("./routes/category");
+const productRoutes = require("./routes/product");
 
 env.config();
 
@@ -30,6 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", userAuthRoutes);
 app.use("/api", adminAuthRoutes);
 app.use("/api", categoryRoutes);
+app.use("/api", productRoutes);
 
 // Server calling
 app.listen(process.env.PORT, () => {
