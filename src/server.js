@@ -5,8 +5,9 @@ const mongoose = require("mongoose");
 // const bodyParser = require("body-parser");
 
 // -----------------------Routes----------------------------
-const userAuthRoutes = require("./routes/auth");
-const adminAuthRoutes = require("./routes/admin/auth");
+const userAuthRoutes = require("./routes/authUser");
+const adminAuthRoutes = require("./routes/authAdmin");
+const categoryRoutes = require("./routes/category");
 
 env.config();
 
@@ -28,6 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api", userAuthRoutes);
 app.use("/api", adminAuthRoutes);
+app.use("/api", categoryRoutes);
 
 // Server calling
 app.listen(process.env.PORT, () => {
